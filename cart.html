@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Cart</p>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.write("<p>茄子：１００円</p>");
+      document.write("<p>トマト：２００円</p>");
+      document.write("<p>キュウリ：３００円</p>");
+
+      document.write(
+        "nasu：" +
+          getParam("num_nasu") +
+          "　tomato：" +
+          getParam("num_tomato") +
+          "　cucumber:" +
+          getParam("num_cucumber") +
+          "　"
+      );
+      var num_nasu = getParam("num_nasu");
+      var num_tomato = getParam("num_tomato");
+      var num_cucumber = getParam("num_cucumber");
+      var total = 100 * num_nasu + 200 * num_tomato + 300 * num_cucumber;
+      // alert(total);
+      document.write(total + "円");
+
+      //クエリ文字列から値を取り出す関数
+      function getParam(name, url) {
+        url = window.location.href; //URLの取得
+        //alert(url);
+        name = name.replace(/[\[\]]/g, "\\$&");
+        //alert(name);
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+        //alert(regex);
+        var results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+    </script>
+  </body>
+</html>
