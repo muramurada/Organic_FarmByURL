@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- icons -->
+        <link rel="icon" href="img/hero_img.png">
+        <!-- <link rel="icon" sizes="192x192" href="img/hero_img.png"> -->
     <title>Document</title>
   </head>
   <body>
@@ -30,17 +33,13 @@
       var num_tomato = getParam("num_tomato");
       var num_cucumber = getParam("num_cucumber");
       var total = 100 * num_nasu + 200 * num_tomato + 300 * num_cucumber;
-      // alert(total);
       document.write(total + "円");
 
       //クエリ文字列から値を取り出す関数
       function getParam(name, url) {
         url = window.location.href; //URLの取得
-        //alert(url);
         name = name.replace(/[\[\]]/g, "\\$&");
-        //alert(name);
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
-        //alert(regex);
         var results = regex.exec(url);
         if (!results) return null;
         if (!results[2]) return "";
