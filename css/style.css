@@ -245,11 +245,7 @@ h3 {
 .wrapper-faq-container .section-title {
   margin: 0 auto;
 }
-
 .wrapper-contact-container {
-  margin: 0 auto;
-}
-.wrapper-contact-container form {
   max-width: 500px;
   margin: 0 auto;
 }
